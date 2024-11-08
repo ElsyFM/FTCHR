@@ -18,7 +18,6 @@ public class TankDrive_Arm_TeleOp extends LinearOpMode {
     private DcMotor backRightDrive = null;
     // Arm Motors
     private DcMotor armLeftMotor = null;
-    private DcMotor armRightMotor = null;
 
     private Servo paperPlaneServo= null;
 
@@ -29,7 +28,6 @@ public class TankDrive_Arm_TeleOp extends LinearOpMode {
         backRightDrive = hardwareMap.get(DcMotor.class, "back_right");
 
         armLeftMotor = hardwareMap.get(DcMotor.class, "arm_left");
-        armRightMotor = hardwareMap.get(DcMotor.class, "arm_right");
 
         paperPlaneServo = hardwareMap.get(Servo.class, "plane_servo");
 
@@ -37,8 +35,7 @@ public class TankDrive_Arm_TeleOp extends LinearOpMode {
         backLeftDrive.setDirection(DcMotorSimple.Direction.FORWARD);
         backRightDrive.setDirection(DcMotorSimple.Direction.REVERSE);
 
-        armLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-        armRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        armLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
         // Set/Reset Servo Position (Unsure on if this works?)
         paperPlaneServo.setPosition(0);
@@ -97,13 +94,11 @@ public class TankDrive_Arm_TeleOp extends LinearOpMode {
                 if(right_bumper && !left_bumper)
                 {
                     armLeftMotor.setPower(arm_DownTuningMax);
-                    armRightMotor.setPower(arm_DownTuningMax);
                 }
                 // If the left bumper is pressed AND the right is not:
                 if(left_bumper && !right_bumper)
                 {
                     armLeftMotor.setPower(-arm_UpTuningMax);
-                    armRightMotor.setPower(-arm_UpTuningMax);
                 }
 
             }
@@ -118,7 +113,6 @@ public class TankDrive_Arm_TeleOp extends LinearOpMode {
                     right_trigger = arm_DownMax; // Set power to Max
                 }
                 armLeftMotor.setPower(right_trigger);
-                armRightMotor.setPower(right_trigger);
             }
             // Vice versa
             if (left_trigger > 0 && right_trigger == 0)
@@ -128,7 +122,6 @@ public class TankDrive_Arm_TeleOp extends LinearOpMode {
                     left_trigger = arm_UpMax;
                 }
                 armLeftMotor.setPower(-left_trigger);
-                armRightMotor.setPower(-left_trigger);
             }
 
             telemetry.addData("Triggers, Left/Right", "%4.2f, %4.2f",

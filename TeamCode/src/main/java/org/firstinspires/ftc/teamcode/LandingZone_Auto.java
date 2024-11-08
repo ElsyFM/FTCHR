@@ -17,7 +17,7 @@ public class LandingZone_Auto extends LinearOpMode {
 
     // Arm
     private DcMotor armLeftMotor = null;
-    private DcMotor armRightMotor = null;
+
 
     @Override
     public void runOpMode(){
@@ -26,7 +26,6 @@ public class LandingZone_Auto extends LinearOpMode {
         backRightDrive = hardwareMap.get(DcMotor.class, "back_right");
 
         armLeftMotor = hardwareMap.get(DcMotor.class, "arm_left");
-        armRightMotor = hardwareMap.get(DcMotor.class, "arm_right");
 
 
 
@@ -35,7 +34,6 @@ public class LandingZone_Auto extends LinearOpMode {
         backRightDrive.setDirection(DcMotorSimple.Direction.FORWARD);
 
         armLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-        armRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
         // Wait for driver to press PLAY
@@ -67,7 +65,6 @@ public class LandingZone_Auto extends LinearOpMode {
             // Between seconds: 0.2 - 1.2
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             armLeftMotor.setPower(0.8);
-            armRightMotor.setPower(0.8);
 
             backLeftDrive.setPower(0.8);
             backRightDrive.setPower(-0.8);

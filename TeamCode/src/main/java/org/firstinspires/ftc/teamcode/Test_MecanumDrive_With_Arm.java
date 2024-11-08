@@ -151,8 +151,6 @@ public class Test_MecanumDrive_With_Arm extends LinearOpMode {
 
             //
             double armMotor_BasePower = gamepad2_leftStickPower; // Change to ternary to account for limit later
-            double armMotor_MiddlePower = gamepad2_rightStickPower; // Change to ternary to account for limit later
-
 
             //armMotor_Base.setPower(armMotor_BasePower);
             //armMotor_Middle.setPower(armMotor_MiddlePower);
@@ -176,7 +174,6 @@ public class Test_MecanumDrive_With_Arm extends LinearOpMode {
             // Show Arm Details
             telemetry.addData("Arm: Base Motor (Power): ", "%4.2f", armMotor_BasePower);
             telemetry.addData("Arm: Base Motor (Position): ", "%4.2f", armMotor_Base.getCurrentPosition());
-            telemetry.addData("Arm: Middle Motor (Power): ", "%4.2f", armMotor_MiddlePower);
 
             //telemetry.addData("Arm: Claw Motor (Position): ", "%4.2f", clawMotor_Position);
             telemetry.update();
